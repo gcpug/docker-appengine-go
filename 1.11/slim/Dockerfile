@@ -1,4 +1,4 @@
-FROM debian:jessie-slim
+FROM google/cloud-sdk:slim
 LABEL maintainer "GCPUG <https://gcpug.jp/>"
 
 ENV GOPATH=/go \
