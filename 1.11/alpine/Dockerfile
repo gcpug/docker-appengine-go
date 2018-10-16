@@ -10,9 +10,6 @@ ARG GOLANG_DOWNLOAD_SHA256=2871270d8ff0c8c69f161aaae42f9f28739855ff5c5204752a8d9
 RUN gcloud components install \
 		app-engine-go \
 		beta \
-		cloud-datastore-emulator \
-		emulator-reverse-proxy \
-		pubsub-emulator && \
     chmod +x \
 		/google-cloud-sdk/platform/google_appengine/goapp \
 		/google-cloud-sdk/platform/google_appengine/godoc \
@@ -23,6 +20,13 @@ RUN gcloud components install \
 		/google-cloud-sdk/platform/google_appengine/bulkloader.py \
 		/google-cloud-sdk/platform/google_appengine/download_appstats.py \
 		/google-cloud-sdk/platform/google_appengine/endpointscfg.py && \
+    \
+    apk add --no-cache \
+        gcc \
+        libc-dev \
+        make \
+        unzip && \
+    \
     curl -o go.tgz -sSL "https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz" && \
     echo "${GOLANG_DOWNLOAD_SHA256} *go.tgz" | sha256sum -c - && \
     tar -C /usr/local -xzf go.tgz && \
