@@ -9,7 +9,7 @@ ARG GOLANG_DOWNLOAD_SHA256=2871270d8ff0c8c69f161aaae42f9f28739855ff5c5204752a8d9
 
 RUN gcloud components install \
 		app-engine-go \
-		beta \
+		beta && \
     chmod +x \
 		/google-cloud-sdk/platform/google_appengine/goapp \
 		/google-cloud-sdk/platform/google_appengine/godoc \
