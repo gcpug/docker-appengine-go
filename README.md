@@ -1,6 +1,4 @@
 # docker-appengine-go
-[![Docker Build Status](https://img.shields.io/docker/build/gcpug/appengine-go.svg?style=flat-square&label=status)](https://hub.docker.com/r/gcpug/appengine-go/builds/)
-[![Docker Automated build](https://img.shields.io/docker/automated/gcpug/appengine-go.svg?style=flat-square&label=build)](https://hub.docker.com/r/gcpug/appengine-go/)
 
 Docker Image for the [Google App Engine Go environment second generation](https://cloud.google.com/appengine/docs/go/).
 

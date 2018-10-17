@@ -1,8 +1,9 @@
 FROM google/cloud-sdk:slim
 LABEL maintainer "GCPUG <https://gcpug.jp/>"
 
-ENV GOPATH=/go \
-	PATH=/go/bin:/usr/local/go/bin:/google-cloud-sdk/bin:/google-cloud-sdk/platform/google_appengine:$PATH
+ARG GOPATH=/go
+ENV GOPATH=${GOPATH} \
+	PATH=/go/bin:/usr/local/go/bin:$PATH
 
 ARG APT_MIRROR=httpredir.debian.org
 ARG GOLANG_VERSION=1.11.1
@@ -21,6 +22,7 @@ RUN sed -ri "s/(deb|httpredir).debian.org/${APT_MIRROR}/g" /etc/apt/sources.list
 	curl -o go.tgz -sSL "https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz" && \
 	echo "${GOLANG_DOWNLOAD_SHA256} *go.tgz" | sha256sum -c - && \
 	tar -C /usr/local -xzf go.tgz && \
-	rm go.tgz
+	rm go.tgz && \
+	mkdir ${GOPATH}
 
 VOLUME ["/root/.config"]
