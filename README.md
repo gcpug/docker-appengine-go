@@ -30,23 +30,32 @@ All images installed `go` runtime, `gcloud` SDK and following components with `g
 
 To use this image, pull from [Docker Hub](https://hub.docker.com/r/gcpug/appengine-go/). See [Installation](#installation) section.
 
-Verify the `go`, `gcloud` and `goapp` commands:
+Verify the `go`, `gcloud` and `dev_appserver.py` commands:
 
 ```console
-$ docker run --rm -it gcpug/appengine-go:latest gcloud version
-Google Cloud SDK 167.0.0
-alpha 2017.08.11
-beta 2017.08.11
-bq 2.0.25
-core 2017.08.11
-gcloud
-gsutil 4.27
+$ docker run --rm -it gcr.io/gcpug-container/appengine-go:latest gcloud version
+Google Cloud SDK 220.0.0
+alpha 2018.10.08
+app-engine-go
+app-engine-java 1.9.66
+app-engine-python 1.9.77
+app-engine-python-extras 1.9.77
+beta 2018.10.08
+bigtable
+bq 2.0.34
+cbt
+cloud-datastore-emulator 2.0.2
+core 2018.10.08
+datalab 20180823
+gsutil 4.34
+kubectl 2018.10.08
+pubsub-emulator 2018.10.08
 
-$ docker run --rm -it gcpug/appengine-go:latest go version
-go version go1.6.4 linux/amd64
+$ docker run --rm -it gcr.io/gcpug-container/appengine-go:latest go version
+go version go1.11.1 linux/amd64
 
-$ docker run --rm -it gcpug/appengine-go:latest goapp version
-go version 1.6.4 (appengine-1.9.57) linux/amd64
+$ docker run --rm -it gcr.io/gcpug-container/appengine-go:latest which dev_appserver.py
+/usr/bin/dev_appserver.py
 ```
 
 ### Use on Circle CI 2.0
@@ -59,7 +68,7 @@ jobs:
   build:
     working_directory: /go/src/github.com/YOUR/REPO
     docker:
-      - image: gcpug/appengine-go
+      - image: gcr.io/gcpug-container/appengine-go
     steps:
       - checkout
       - run:
