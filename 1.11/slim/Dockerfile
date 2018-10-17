@@ -12,10 +12,10 @@ RUN sed -ri "s/(deb|httpredir).debian.org/${APT_MIRROR}/g" /etc/apt/sources.list
 	set -eux && \
 	apt-get update && \
 	apt-get install -yqq --no-install-suggests --no-install-recommends \
+        google-cloud-sdk-app-engine-go \
 		libc6-dev \
 		make \
-		unzip \
-        google-cloud-sdk-app-engine-go && \
+		unzip && \
 	rm -rf /var/lib/apt/lists/* && \
 	\
 	curl -o go.tgz -sSL "https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz" && \

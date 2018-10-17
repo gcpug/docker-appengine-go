@@ -15,7 +15,7 @@ RUN sed -ri "s/(deb|httpredir).debian.org/${APT_MIRROR}/g" /etc/apt/sources.list
 		libc6-dev \
 		make \
 		unzip && \
-        rm -rf /var/lib/apt/lists/* && \
+	rm -rf /var/lib/apt/lists/* && \
 	\
 	curl -o go.tgz -sSL "https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz" && \
 	echo "${GOLANG_DOWNLOAD_SHA256} *go.tgz" | sha256sum -c - && \
