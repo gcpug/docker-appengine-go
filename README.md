@@ -5,7 +5,7 @@ Docker Image for the [Google App Engine Go environment second generation](https:
 ## Installation
 
 ```sh
-docker pull gcpug/appengine-go
+docker pull gcr.io/gcpug-container/appengine-go
 ```
 
 ## Tags
@@ -28,7 +28,7 @@ All images installed `go` runtime, `gcloud` SDK and following components with `g
 
 ## Usage
 
-To use this image, pull from [Docker Hub](https://hub.docker.com/r/gcpug/appengine-go/). See [Installation](#installation) section.
+To use this image, pull from [Container Registry](https://gcr.io/gcpug-container/appengine-go). See [Installation](#installation) section.
 
 Verify the `go`, `gcloud` and `dev_appserver.py` commands:
 
