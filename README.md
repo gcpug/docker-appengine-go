@@ -23,7 +23,7 @@ All images installed `go` runtime, `gcloud` SDK and following components with `g
 |                | cloud-datastore-emulator                                             |                                                                     |                                                                             |
 |                | emulator-reverse-proxy                                               |                                                                     |                                                                             |
 |                | pubsub-emulator                                                      |                                                                     |                                                                             |
-| **Base image** | [debian:jessie](https://hub.docker.com/_/debian/)                    | [debian:jessie-slim](https://hub.docker.com/_/debian/)              | [google/cloud-sdk:alpine](https://hub.docker.com/r/google/cloud-sdk/)       |
+| **Base image** |[google/cloud-sdk:latest](https://hub.docker.com/r/google/cloud-sdk/) |[google/cloud-sdk:slim](https://hub.docker.com/r/google/cloud-sdk/)| [google/cloud-sdk:alpine](https://hub.docker.com/r/google/cloud-sdk/)       |
 
 
 ## Usage
