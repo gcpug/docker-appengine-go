@@ -90,3 +90,6 @@ circleci build
 
  * Kensuke Sano ([@sonatard](https://github.com/sonatard))
 
+## Comments
+
+* Hello Cloud Build
