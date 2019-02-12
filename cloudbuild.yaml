@@ -4,7 +4,7 @@ steps:
       - build
       - -t
       - gcr.io/$PROJECT_ID/appengine-go:1.11
-      - 1.11/jessie
+      - 1.11/debian
     id: '1.11'
   - name: 'gcr.io/cloud-builders/docker'
     args:
