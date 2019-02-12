@@ -16,7 +16,7 @@ All images installed `go` runtime, `gcloud` SDK and following components with `g
 ## 2nd generation
 
 ### Go 1.11
-| Tag            | [`latest`](1.11/jessie/Dockerfile), [`1.11`](1.11/jessie/Dockerfile) | [`slim`](1.11/slim/Dockerfile), [`1.11-slim`](1.11/slim/Dockerfile) | [`alpine`](1.11/alpine/Dockerfile), [`1.11-alpine`](1.11/alpine/Dockerfile) |
+| Tag            | [`latest`](1.11/debian/Dockerfile), [`1.11`](1.11/debian/Dockerfile) | [`slim`](1.11/slim/Dockerfile), [`1.11-slim`](1.11/slim/Dockerfile) | [`alpine`](1.11/alpine/Dockerfile), [`1.11-alpine`](1.11/alpine/Dockerfile) |
 |---------------:|----------------------------------------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------|
 |         **Go** | 1.11.1                                                               | 1.11.1                                                              | 1.11.1                                                                      |
 | **Components** | appengine-go                                                         | appengine-go                                                        | appengine-go                                                                |
