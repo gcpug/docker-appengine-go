@@ -4,8 +4,8 @@ LABEL maintainer "GCPUG <https://gcpug.jp/>"
 ENV GOPATH=/go \
 	PATH=/go/bin:/usr/local/go/bin:/google-cloud-sdk/bin:/google-cloud-sdk/platform/google_appengine:$PATH
 
-ARG GOLANG_VERSION=1.11.1
-ARG GOLANG_DOWNLOAD_SHA256=2871270d8ff0c8c69f161aaae42f9f28739855ff5c5204752a8d92a1c9f63993
+ARG GOLANG_VERSION=1.11.10
+ARG GOLANG_DOWNLOAD_SHA256=aefaa228b68641e266d1f23f1d95dba33f17552ba132878b65bb798ffa37e6d0
 
 RUN apk add --no-cache \
         gcc \
