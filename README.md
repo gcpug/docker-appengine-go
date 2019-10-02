@@ -1,7 +1,6 @@
 # docker-appengine-go
 
-Docker Image for the [Google App Engine Go environment](https://cloud.google.com/appengine/docs/go/) second generation.
-Not support first generation Go 1.6, 1.8 and 1.9. first genation user use [mercari/docker-appengine-go](https://github.com/mercari/docker-appengine-go).
+Docker Image for the [Google App Engine Go environment](https://cloud.google.com/appengine/docs/go/) Go 1.11.
 
 ## Installation
 
