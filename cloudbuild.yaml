@@ -43,29 +43,17 @@ steps:
     id: '1.13-alpine'
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.11']
-    wait_for: ['1.11']
-    id: '1.11-latest'
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.11-slim']
-    wait_for: ['1.11-slim']
-    id: '1.11-slim'
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.11-alpine']
-    wait_for: ['1.11-alpine']
-    id: '1.11-alpine'
-  - name: 'gcr.io/cloud-builders/docker'
     args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.13', 'gcr.io/$PROJECT_ID/appengine-go:latest']
     wait_for: ['1.13']
-    id: '1.13-latest'
+    id: 'latest'
   - name: 'gcr.io/cloud-builders/docker'
     args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.13-slim', 'gcr.io/$PROJECT_ID/appengine-go:slim']
     wait_for: ['1.13-slim']
-    id: '1.13-slim'
+    id: 'slim'
   - name: 'gcr.io/cloud-builders/docker'
     args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.13-alpine', 'gcr.io/$PROJECT_ID/appengine-go:alpine']
     wait_for: ['1.13-alpine']
-    id: '1.13-alpine'
+    id: 'alpine'
 
 images:
   - gcr.io/$PROJECT_ID/appengine-go:latest
