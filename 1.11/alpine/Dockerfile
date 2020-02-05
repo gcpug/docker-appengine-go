@@ -4,8 +4,8 @@ LABEL maintainer "GCPUG <https://gcpug.jp/>"
 ENV GOPATH=/go \
 	PATH=/go/bin:/usr/local/go/bin:/google-cloud-sdk/bin:/google-cloud-sdk/platform/google_appengine:$PATH
 
-ARG GOLANG_VERSION=1.11.11
-ARG GOLANG_DOWNLOAD_SHA256=2fd47b824d6e32154b0f6c8742d066d816667715763e06cebb710304b195c775
+ARG GOLANG_VERSION=1.11.13
+ARG GOLANG_DOWNLOAD_SHA256=50fe8e13592f8cf22304b9c4adfc11849a2c3d281b1d7e09c924ae24874c6daa
 
 RUN apk add --no-cache \
         gcc \
@@ -17,9 +17,6 @@ RUN apk add --no-cache \
 		app-engine-go \
 		beta && \
     chmod +x \
-		/google-cloud-sdk/platform/google_appengine/goapp \
-		/google-cloud-sdk/platform/google_appengine/godoc \
-		/google-cloud-sdk/platform/google_appengine/gofmt \
 		/google-cloud-sdk/platform/google_appengine/appcfg.py \
 		/google-cloud-sdk/platform/google_appengine/backends_conversion.py \
 		/google-cloud-sdk/platform/google_appengine/bulkload_client.py \

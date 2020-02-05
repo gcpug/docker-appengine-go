@@ -17,9 +17,6 @@ RUN apk add --no-cache \
 		app-engine-go \
 		beta && \
     chmod +x \
-		/google-cloud-sdk/platform/google_appengine/goapp \
-		/google-cloud-sdk/platform/google_appengine/godoc \
-		/google-cloud-sdk/platform/google_appengine/gofmt \
 		/google-cloud-sdk/platform/google_appengine/appcfg.py \
 		/google-cloud-sdk/platform/google_appengine/backends_conversion.py \
 		/google-cloud-sdk/platform/google_appengine/bulkload_client.py \
