@@ -20,19 +20,52 @@ steps:
       - gcr.io/$PROJECT_ID/appengine-go:1.11-alpine
       - 1.11/alpine
     id: '1.11-alpine'
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - build
+      - -t
+      - gcr.io/$PROJECT_ID/appengine-go:1.13
+      - 1.13/debian
+    id: '1.13'
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - build
+      - -t
+      - gcr.io/$PROJECT_ID/appengine-go:1.13-slim
+      - 1.13/slim
+    id: '1.13-slim'
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - build
+      - -t
+      - gcr.io/$PROJECT_ID/appengine-go:1.13-alpine
+      - 1.13/alpine
+    id: '1.13-alpine'
 
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.11', 'gcr.io/$PROJECT_ID/appengine-go:latest']
+    args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.11']
     wait_for: ['1.11']
-    id: 'latest'
+    id: '1.11-latest'
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.11-slim', 'gcr.io/$PROJECT_ID/appengine-go:slim']
+    args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.11-slim']
     wait_for: ['1.11-slim']
-    id: 'slim'
+    id: '1.11-slim'
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.11-alpine', 'gcr.io/$PROJECT_ID/appengine-go:alpine']
+    args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.11-alpine']
     wait_for: ['1.11-alpine']
-    id: 'alpine'
+    id: '1.11-alpine'
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.13', 'gcr.io/$PROJECT_ID/appengine-go:latest']
+    wait_for: ['1.13']
+    id: '1.13-latest'
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.13-slim', 'gcr.io/$PROJECT_ID/appengine-go:slim']
+    wait_for: ['1.13-slim']
+    id: '1.13-slim'
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['tag', 'gcr.io/$PROJECT_ID/appengine-go:1.13-alpine', 'gcr.io/$PROJECT_ID/appengine-go:alpine']
+    wait_for: ['1.13-alpine']
+    id: '1.13-alpine'
 
 images:
   - gcr.io/$PROJECT_ID/appengine-go:latest
@@ -41,5 +74,8 @@ images:
   - gcr.io/$PROJECT_ID/appengine-go:1.11
   - gcr.io/$PROJECT_ID/appengine-go:1.11-slim
   - gcr.io/$PROJECT_ID/appengine-go:1.11-alpine
+  - gcr.io/$PROJECT_ID/appengine-go:1.13
+  - gcr.io/$PROJECT_ID/appengine-go:1.13-slim
+  - gcr.io/$PROJECT_ID/appengine-go:1.13-alpine
 
 timeout: '20m'

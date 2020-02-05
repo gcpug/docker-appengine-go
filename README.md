@@ -1,6 +1,6 @@
 # docker-appengine-go
 
-Docker Image for the [Google App Engine Go environment](https://cloud.google.com/appengine/docs/go/) Go 1.11.
+Docker Image for the [Google App Engine Go environment](https://cloud.google.com/appengine/docs/go/) Go.
 
 ## Installation
 
@@ -12,19 +12,47 @@ docker pull gcr.io/gcpug-container/appengine-go
 
 All images installed `go` runtime, `gcloud` SDK and following components with `gcloud` way.
 
-## 2nd generation
+## Go 1.13
 
-### Go 1.11
-| Tag            | [`latest`](1.11/debian/Dockerfile), [`1.11`](1.11/debian/Dockerfile) | [`slim`](1.11/slim/Dockerfile), [`1.11-slim`](1.11/slim/Dockerfile) | [`alpine`](1.11/alpine/Dockerfile), [`1.11-alpine`](1.11/alpine/Dockerfile) |
-|---------------:|----------------------------------------------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------------------|
-|         **Go** | 1.11.1                                                               | 1.11.1                                                              | 1.11.1                                                                      |
-| **Components** | appengine-go                                                         | appengine-go                                                        | appengine-go                                                                |
-|                | beta                                                                 | beta                                                                | beta                                                                        |
-|                | cloud-datastore-emulator                                             |                                                                     |                                                                             |
-|                | emulator-reverse-proxy                                               |                                                                     |                                                                             |
-|                | pubsub-emulator                                                      |                                                                     |                                                                             |
-| **Base image** |[google/cloud-sdk:latest](https://hub.docker.com/r/google/cloud-sdk/) |[google/cloud-sdk:slim](https://hub.docker.com/r/google/cloud-sdk/)| [google/cloud-sdk:alpine](https://hub.docker.com/r/google/cloud-sdk/)       |
+- Version: 1.13.7
+- Base Image: [google/cloud-sdk](https://hub.docker.com/r/google/cloud-sdk/)
 
+- [`latest`](1.13/debian/Dockerfile), [`1.13`](1.13/debian/Dockerfile)
+  - Components
+    - appengine-go
+    - beta
+    - cloud-datastore-emulator
+    - emulator-reverse-proxy
+    - pubsub-emulator
+- [`slim`](1.13/slim/Dockerfile), [`1.13-slim`](1.13/slim/Dockerfile)
+  - Components
+    - appengine-go
+    - beta
+- [`alpine`](1.13/alpine/Dockerfile), [`1.13-alpine`](1.13/alpine/Dockerfile)
+  - Components
+    - appengine-go
+    - beta
+
+## Go 1.11
+
+- Version: 1.11.11
+- Base Image: [google/cloud-sdk](https://hub.docker.com/r/google/cloud-sdk/)
+
+- [`1.11`](1.11/debian/Dockerfile)
+  - Components
+    - appengine-go
+    - beta
+    - cloud-datastore-emulator
+    - emulator-reverse-proxy
+    - pubsub-emulator
+- [`1.11-slim`](1.11/slim/Dockerfile)
+  - Components
+    - appengine-go
+    - beta
+- [`1.11-alpine`](1.11/alpine/Dockerfile)
+  - Components
+    - appengine-go
+    - beta
 
 ## Usage
 
@@ -52,7 +80,7 @@ kubectl 2018.10.08
 pubsub-emulator 2018.10.08
 
 $ docker run --rm -it gcr.io/gcpug-container/appengine-go:latest go version
-go version go1.11.1 linux/amd64
+go version go1.13.1 linux/amd64
 
 $ docker run --rm -it gcr.io/gcpug-container/appengine-go:latest which dev_appserver.py
 /usr/bin/dev_appserver.py
