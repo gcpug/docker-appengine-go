@@ -111,7 +111,7 @@ Verify on local (required Docker environment on host OS):
 
 ```sh
 cd /path/to/your_repository
-circleci build
+circleci local execute --job JOB_NAME
 ```
 
 ## Committers
