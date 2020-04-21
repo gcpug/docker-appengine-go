@@ -4,6 +4,7 @@ LABEL maintainer "GCPUG <https://gcpug.jp/>"
 ARG GOPATH=/go
 ENV GOPATH=${GOPATH} \
 	PATH=/go/bin:/usr/local/go/bin:$PATH
+ENV CLOUDSDK_PYTHON=python2
 
 ARG GOLANG_VERSION=1.11.13
 ARG GOLANG_DOWNLOAD_SHA256=50fe8e13592f8cf22304b9c4adfc11849a2c3d281b1d7e09c924ae24874c6daa
@@ -21,5 +22,7 @@ RUN set -eux && \
 	tar -C /usr/local -xzf go.tgz && \
 	rm go.tgz && \
 	mkdir ${GOPATH}
+
+ENV CLOUDSDK_PYTHON=python2
 
 VOLUME ["/root/.config"]
