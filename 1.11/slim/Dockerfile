@@ -3,6 +3,7 @@ LABEL maintainer "GCPUG <https://gcpug.jp/>"
 
 ARG GOPATH=/go
 ENV GOPATH=${GOPATH} \
+	CLOUDSDK_PYTHON=python2 \
 	PATH=/go/bin:/usr/local/go/bin:$PATH
 
 ARG GOLANG_VERSION=1.11.13
