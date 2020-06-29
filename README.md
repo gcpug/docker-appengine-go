@@ -14,7 +14,7 @@ All images installed `go` runtime, `gcloud` SDK and following components with `g
 
 ## Go 1.13
 
-- Version: 1.13.7
+- Version: 1.13.11
 - Base Image: [google/cloud-sdk](https://hub.docker.com/r/google/cloud-sdk/)
 
 - [`latest`](1.13/debian/Dockerfile), [`1.13`](1.13/debian/Dockerfile)
