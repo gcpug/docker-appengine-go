@@ -90,4 +90,4 @@ images:
   - gcr.io/$PROJECT_ID/appengine-go:1.14-slim
   - gcr.io/$PROJECT_ID/appengine-go:1.14-alpine
 
-timeout: '20m'
+timeout: '40m'
