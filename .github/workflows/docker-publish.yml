@@ -1,0 +1,94 @@
+name: Docker
+
+on:
+  push:
+    branches:
+      - master
+  # Run tests for any PRs.
+  pull_request:
+
+env:
+  IMAGE_ID: ghcr.io/${{ github.repository_owner }}/appengine-go
+  LATEST_VERSION: 1.14
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [1.14, 1.13, 1.11]
+        os: [debian, slim, alpine]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Run test
+        run: docker build . --file ${{ matrix.version }}/${{ matrix.os }}/Dockerfile --tag $IMAGE_ID:${{ matrix.version }}-${{ matrix.os }}
+
+  push:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    strategy:
+      matrix:
+        version: [1.14, 1.13, 1.11]
+        os: [debian, slim, alpine]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: |
+          docker build . --file ${{ matrix.version }}/${{ matrix.os }}/Dockerfile --tag $IMAGE_ID:${{ matrix.version }}-${{ matrix.os }}
+
+      - name: Log into GitHub Container Registry
+        run: echo "${{ secrets.CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Push image to GitHub Container Registry
+        run: |
+          echo OS=${{ matrix.os }}
+          echo Version=${{ matrix.version }}
+
+
+          docker push $IMAGE_ID:${{ matrix.version }}-${{ matrix.os }}
+
+  push_os_latest:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    strategy:
+      matrix:
+        os: [debian, slim, alpine]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: |
+          docker build . --file $LATEST_VERSION/debian/Dockerfile --tag $IMAGE_ID:${{ matrix.os }}
+
+      - name: Log into GitHub Container Registry
+        run: echo "${{ secrets.CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Push image to GitHub Container Registry
+        run: |
+          docker push $IMAGE_ID:${{ matrix.os }}
+
+  push_latest:
+    # 最後にpushしたものがpackageのサイトのサンプルになるようなので、最後に実行するようにする
+    needs: push
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: |
+          docker build . --file $LATEST_VERSION/debian/Dockerfile --tag $IMAGE_ID:latest
+
+      - name: Log into GitHub Container Registry
+        run: echo "${{ secrets.CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Push image to GitHub Container Registry
+        run: |
+          docker push $IMAGE_ID:latest

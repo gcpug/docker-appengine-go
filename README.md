@@ -5,7 +5,10 @@ Docker Image for the [Google App Engine Go environment](https://cloud.google.com
 ## Installation
 
 ```sh
-docker pull gcr.io/gcpug-container/appengine-go
+docker pull ghcr.io/gcpug/appengine-go:latest
+
+# Google Container Registry image is deprecated. Please migrate as soon as possible.
+# docker pull gcr.io/gcpug-container/appengine-go
 ```
 
 ## Tags
@@ -77,12 +80,12 @@ All images installed `go` runtime, `gcloud` SDK and following components with `g
 
 ## Usage
 
-To use this image, pull from [Container Registry](https://gcr.io/gcpug-container/appengine-go). See [Installation](#installation) section.
+To use this image, pull from [Github Container Registry](https://github.com/orgs/gcpug/packages/container/appengine-go/). See [Installation](#installation) section.
 
 Verify the `go`, `gcloud` and `dev_appserver.py` commands:
 
 ```console
-$ docker run --rm -it gcr.io/gcpug-container/appengine-go:latest gcloud version
+$ docker run --rm -it ghcr.io/gcpug/appengine-go:latest gcloud version
 Google Cloud SDK 220.0.0
 alpha 2018.10.08
 app-engine-go
@@ -100,11 +103,26 @@ gsutil 4.34
 kubectl 2018.10.08
 pubsub-emulator 2018.10.08
 
-$ docker run --rm -it gcr.io/gcpug-container/appengine-go:latest go version
+$ docker run --rm -it ghcr.io/gcpug/appengine-go:latest go version
 go version go1.13.1 linux/amd64
 
-$ docker run --rm -it gcr.io/gcpug-container/appengine-go:latest which dev_appserver.py
+$ docker run --rm -it ghcr.io/gcpug/appengine-go:latest which dev_appserver.py
 /usr/bin/dev_appserver.py
+```
+
+### Use on Github Actions
+
+Create `.github/workflows/xxx.yml` to your repository.
+
+```yaml
+jobs:
+  build:
+    container:
+      image: ghcr.io/gcpug/appengine-go
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - run: YOUR_TEST_COMMAND
 ```
 
 ### Use on Circle CI 2.0
@@ -117,25 +135,9 @@ jobs:
   build:
     working_directory: /go/src/github.com/YOUR/REPO
     docker:
-      - image: gcr.io/gcpug-container/appengine-go
+      - image: ghcr.io/gcpug/appengine-go
     steps:
       - checkout
       - run:
           command: YOUR_TEST_COMMAND
 ```
-
-If you want to test the CI works, Install Circle CI 2.0 Command Line Interface:
-
-https://circleci.com/docs/2.0/local-jobs/
-
-Verify on local (required Docker environment on host OS):
-
-```sh
-cd /path/to/your_repository
-circleci local execute --job JOB_NAME
-```
-
-## Committers
-
- * Kensuke Sano ([@sonatard](https://github.com/sonatard))
-
