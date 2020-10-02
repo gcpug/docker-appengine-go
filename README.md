@@ -20,7 +20,7 @@ All images installed `go` runtime, `gcloud` SDK and following components with `g
 - Version: 1.14.3
 - Base Image: [google/cloud-sdk](https://hub.docker.com/r/google/cloud-sdk/)
 
-- [`latest`](1.14/debian/Dockerfile), [`1.14`](1.14/debian/Dockerfile)
+- [`latest`](1.14/debian/Dockerfile), [`debian`](1.14/debian/Dockerfile), [`1.14`](1.14/debian/Dockerfile), [`1.14-debian`](1.14/debian/Dockerfile)
   - Components
     - appengine-go
     - beta
@@ -41,7 +41,7 @@ All images installed `go` runtime, `gcloud` SDK and following components with `g
 - Version: 1.13.11
 - Base Image: [google/cloud-sdk](https://hub.docker.com/r/google/cloud-sdk/)
 
-- [`1.13`](1.13/debian/Dockerfile)
+- [`1.13`](1.13/debian/Dockerfile), [`1.13-debian`](1.13/debian/Dockerfile)
   - Components
     - appengine-go
     - beta
@@ -62,7 +62,7 @@ All images installed `go` runtime, `gcloud` SDK and following components with `g
 - Version: 1.11.13
 - Base Image: [google/cloud-sdk](https://hub.docker.com/r/google/cloud-sdk/)
 
-- [`1.11`](1.11/debian/Dockerfile)
+- [`1.11`](1.11/debian/Dockerfile), [`1.11-debian`](1.11/debian/Dockerfile)
   - Components
     - appengine-go
     - beta

@@ -73,6 +73,31 @@ jobs:
         run: |
           docker push $IMAGE_ID:${{ matrix.os }}
 
+  push_version_latest:
+    needs: test
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+
+    strategy:
+      matrix:
+        version: [1.14, 1.13, 1.11]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build image
+        run: |
+          docker build . --file ${{ matrix.version }}/debian/Dockerfile --tag $IMAGE_ID:${{ matrix.version }}
+
+      - name: Log into GitHub Container Registry
+        run: echo "${{ secrets.CR_PAT }}" | docker login https://ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Push image to GitHub Container Registry
+        run: |
+          echo Version=${{ matrix.version }}
+
+
+          docker push $IMAGE_ID:${{ matrix.version }}
+
   push_latest:
     # 最後にpushしたものがpackageのサイトのサンプルになるようなので、最後に実行するようにする
     needs: push
