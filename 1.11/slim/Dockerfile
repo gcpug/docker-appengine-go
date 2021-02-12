@@ -23,6 +23,6 @@ RUN set -eux && \
 	rm go.tgz && \
 	mkdir ${GOPATH}
 
-ENV CLOUDSDK_PYTHON=python2
+ENV CLOUDSDK_PYTHON=python2.7
 
 VOLUME ["/root/.config"]
