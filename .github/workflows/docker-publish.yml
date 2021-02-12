@@ -9,14 +9,14 @@ on:
 
 env:
   IMAGE_ID: ghcr.io/${{ github.repository_owner }}/appengine-go
-  LATEST_VERSION: 1.14
+  LATEST_VERSION: 1.15
 
 jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [1.14, 1.13, 1.11]
+        version: [1.15, 1.14, 1.13, 1.11]
         os: [debian, slim, alpine]
     steps:
       - uses: actions/checkout@v2
@@ -31,7 +31,7 @@ jobs:
 
     strategy:
       matrix:
-        version: [1.14, 1.13, 1.11]
+        version: [1.15, 1.14, 1.13, 1.11]
         os: [debian, slim, alpine]
     steps:
       - uses: actions/checkout@v2
@@ -80,7 +80,7 @@ jobs:
 
     strategy:
       matrix:
-        version: [1.14, 1.13, 1.11]
+        version: [1.15, 1.14, 1.13, 1.11]
     steps:
       - uses: actions/checkout@v2
 
