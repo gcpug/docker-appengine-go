@@ -15,23 +15,44 @@ docker pull ghcr.io/gcpug/appengine-go:latest
 
 All images installed `go` runtime, `gcloud` SDK and following components with `gcloud` way.
 
-## Go 1.15
+## Go 1.16
 
-- Version: 1.15.14
+- Version: 1.16.7
 - Base Image: [google/cloud-sdk](https://hub.docker.com/r/google/cloud-sdk/)
 
-- [`latest`](1.15/debian/Dockerfile), [`debian`](1.15/debian/Dockerfile), [`1.15`](1.15/debian/Dockerfile), [`1.15-debian`](1.15/debian/Dockerfile)
+- [`latest`](1.16/debian/Dockerfile), [`debian`](1.16/debian/Dockerfile), [`1.16`](1.16/debian/Dockerfile), [`1.16-debian`](1.16/debian/Dockerfile)
   - Components
     - appengine-go
     - beta
     - cloud-datastore-emulator
     - emulator-reverse-proxy
     - pubsub-emulator
-- [`slim`](1.15/slim/Dockerfile), [`1.15-slim`](1.15/slim/Dockerfile)
+- [`slim`](1.16/slim/Dockerfile), [`1.16-slim`](1.16/slim/Dockerfile)
   - Components
     - appengine-go
     - beta
-- [`alpine`](1.15/alpine/Dockerfile), [`1.15-alpine`](1.15/alpine/Dockerfile)
+- [`alpine`](1.16/alpine/Dockerfile), [`1.16-alpine`](1.16/alpine/Dockerfile)
+  - Components
+    - appengine-go
+    - beta
+
+## Go 1.15
+
+- Version: 1.15.14
+- Base Image: [google/cloud-sdk](https://hub.docker.com/r/google/cloud-sdk/)
+
+- [`1.15`](1.15/debian/Dockerfile), [`1.15-debian`](1.15/debian/Dockerfile)
+  - Components
+    - appengine-go
+    - beta
+    - cloud-datastore-emulator
+    - emulator-reverse-proxy
+    - pubsub-emulator
+- [`1.15-slim`](1.15/slim/Dockerfile)
+  - Components
+    - appengine-go
+    - beta
+- [`1.15-alpine`](1.15/alpine/Dockerfile)
   - Components
     - appengine-go
     - beta
