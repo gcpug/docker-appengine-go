@@ -1,17 +1,16 @@
-FROM google/cloud-sdk:slim
+FROM google/cloud-sdk:latest
 LABEL maintainer "GCPUG <https://gcpug.jp/>"
 
 ARG GOPATH=/go
 ENV GOPATH=${GOPATH} \
 	PATH=/go/bin:/usr/local/go/bin:$PATH
 
-ARG GOLANG_VERSION=1.15.14
-ARG GOLANG_DOWNLOAD_SHA256=6f5410c113b803f437d7a1ee6f8f124100e536cc7361920f7e640fedf7add72d
+ARG GOLANG_VERSION=1.16.7
+ARG GOLANG_DOWNLOAD_SHA256=7fe7a73f55ba3e2285da36f8b085e5c0159e9564ef5f63ee0ed6b818ade8ef04
 
 RUN set -eux && \
 	apt-get update && \
 	apt-get install -yqq --no-install-suggests --no-install-recommends \
-        google-cloud-sdk-app-engine-go \
 		libc6-dev \
 		make \
 		unzip && \

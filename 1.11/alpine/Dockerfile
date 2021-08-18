@@ -16,13 +16,7 @@ RUN apk add --no-cache \
     gcloud components install \
 		app-engine-go \
 		beta && \
-    chmod +x \
-		/google-cloud-sdk/platform/google_appengine/appcfg.py \
-		/google-cloud-sdk/platform/google_appengine/backends_conversion.py \
-		/google-cloud-sdk/platform/google_appengine/bulkload_client.py \
-		/google-cloud-sdk/platform/google_appengine/bulkloader.py \
-		/google-cloud-sdk/platform/google_appengine/download_appstats.py \
-		/google-cloud-sdk/platform/google_appengine/endpointscfg.py && \
+    chmod +x /google-cloud-sdk/platform/google_appengine/*.py && \
     \
     curl -o go.tgz -sSL "https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz" && \
     echo "${GOLANG_DOWNLOAD_SHA256} *go.tgz" | sha256sum -c - && \

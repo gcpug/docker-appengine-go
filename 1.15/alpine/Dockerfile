@@ -4,8 +4,8 @@ LABEL maintainer "GCPUG <https://gcpug.jp/>"
 ENV GOPATH=/go \
 	PATH=/go/bin:/usr/local/go/bin:/google-cloud-sdk/bin:/google-cloud-sdk/platform/google_appengine:$PATH
 
-ARG GOLANG_VERSION=1.15.8
-ARG GOLANG_DOWNLOAD_SHA256=d3379c32a90fdf9382166f8f48034c459a8cc433730bc9476d39d9082c94583b
+ARG GOLANG_VERSION=1.15.14
+ARG GOLANG_DOWNLOAD_SHA256=6f5410c113b803f437d7a1ee6f8f124100e536cc7361920f7e640fedf7add72d
 
 RUN apk add --no-cache \
         gcc \
@@ -16,13 +16,7 @@ RUN apk add --no-cache \
     gcloud components install \
 		app-engine-go \
 		beta && \
-    chmod +x \
-		/google-cloud-sdk/platform/google_appengine/appcfg.py \
-		/google-cloud-sdk/platform/google_appengine/backends_conversion.py \
-		/google-cloud-sdk/platform/google_appengine/bulkload_client.py \
-		/google-cloud-sdk/platform/google_appengine/bulkloader.py \
-		/google-cloud-sdk/platform/google_appengine/download_appstats.py \
-		/google-cloud-sdk/platform/google_appengine/endpointscfg.py && \
+    chmod +x /google-cloud-sdk/platform/google_appengine/*.py && \
     \
     curl -o go.tgz -sSL "https://golang.org/dl/go${GOLANG_VERSION}.linux-amd64.tar.gz" && \
     echo "${GOLANG_DOWNLOAD_SHA256} *go.tgz" | sha256sum -c - && \
