@@ -1,4 +1,4 @@
-FROM google/cloud-sdk:latest
+FROM gcr.io/google.com/cloudsdktool/cloud-sdk:latest
 LABEL maintainer "GCPUG <https://gcpug.jp/>"
 
 ARG GOPATH=/go

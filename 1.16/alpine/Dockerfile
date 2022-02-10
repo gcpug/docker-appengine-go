@@ -1,4 +1,4 @@
-FROM google/cloud-sdk:alpine
+FROM gcr.io/google.com/cloudsdktool/cloud-sdk:alpine
 LABEL maintainer "GCPUG <https://gcpug.jp/>"
 
 ENV GOPATH=/go \
